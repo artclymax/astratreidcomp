@@ -1,0 +1,45 @@
+@use "../tools" as *;
+
+.about {
+	&__container {
+		.section-header {
+			&:not(:last-child) {
+				margin-bottom: adapt(56, 32);
+			}
+		}
+	}
+
+	&__list {
+		--min: #{adapt(384, 340)};
+		--gap: 24px;
+	}
+
+	&__item {
+	}
+}
+
+.about-item {
+	padding: adapt(32, 20) adapt(32, 12);
+	background: linear-gradient(135deg, #fff 0%, #f9fafb 100%);
+	border: 1px solid var(--color-border);
+	border-radius: 16px;
+
+	@include flex-column;
+	gap: adapt(24, 12);
+
+	&__icon {
+		@include bg-gradient-accent;
+		@include square(adapt(64, 48));
+		@include flex-center;
+
+		img {
+			@include square(32px);
+		}
+	}
+
+	&__title {
+	}
+
+	&__descr {
+	}
+}

@@ -1,0 +1,20 @@
+@use "../tools" as *;
+
+.section-header {
+	@include flex-column;
+	align-items: center;
+	text-align: center;
+
+	&__title {
+		@include reset;
+
+		&:not(:last-child) {
+			margin-bottom: adapt(24, 12);
+		}
+	}
+
+	&__descr {
+		@include reset;
+		font-size: 18px;
+	}
+}

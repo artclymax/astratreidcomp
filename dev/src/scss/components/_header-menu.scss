@@ -1,0 +1,132 @@
+@use "../tools" as *;
+@use "../components/btn" as *;
+
+.header-menu {
+	display: flex;
+	align-items: center;
+	gap: 40px;
+
+	&__box {
+		display: flex;
+		align-items: center;
+		gap: 40px;
+
+		@include media($tablet) {
+			//gap: 16px;
+		}
+	}
+	.contacts-box {
+		flex-shrink: 0;
+	}
+	&__link {
+		font-weight: 500;
+		font-size: 14px;
+		color: var(--color-accent);
+		@include media($tablet) {
+			@include btn;
+		}
+	}
+	@include mobile-menu(var(--color-white), ".open-header-menu", ".header-menu__list") {
+		top: var(--header-height);
+		padding: 32px 80px;
+		background: linear-gradient(
+			180deg,
+			rgba(255, 255, 255, 0.6) 0%,
+			rgba(246, 233, 238, 0.6) 50%,
+			rgba(255, 255, 255, 0.6) 100%
+		);
+		backdrop-filter: blur(10px);
+
+		.admin-bar & {
+			top: calc(var(--header-height) + var(--wp-admin--admin-bar--height));
+		}
+	}
+}
+
+.header-menu__list {
+	@include reset-list;
+
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 12px 24px;
+	color: var(--color-dark);
+
+	@include media($tablet) {
+		gap: 24px;
+		//align-items: flex-start !important;
+	}
+	@include media($mobile-sm) {
+		//align-items: flex-start !important;
+		//text-align: left !important;
+	}
+
+	li {
+		position: relative;
+	}
+
+	a {
+		text-decoration: none;
+		color: inherit;
+		display: inline-flex;
+		transition: all 0.3s;
+		font-weight: 500;
+		@include hover-link;
+
+		@include media($tablet) {
+			font-size: 18px;
+			//&::after {
+			//	//display: none;
+			//}
+		}
+
+		&[aria-current],
+		.current-section {
+			color: var(--color-accent);
+			//&::after {
+			//	right: 0;
+			//	left: 0;
+			//}
+		}
+	}
+
+	//.sub-menu {
+	//	position: absolute;
+	//	z-index: 3;
+	//	padding: 20px;
+	//	background: var(--color-white-07);
+	//	backdrop-filter: blur(20px);
+	//	flex-wrap: nowrap;
+	//	flex-direction: column;
+	//	justify-content: start;
+	//	align-items: start;
+	//	bottom: -12px;
+	//	left: -20px;
+	//	transform: translateY(100%);
+
+	//	opacity: 0;
+	//	visibility: hidden;
+	//	transition: all 0.3s;
+	//	width: 282px;
+
+	//	@include media($tablet) {
+	//		position: static;
+	//		display: none !important;
+	//		text-align: center;
+	//		background: transparent;
+	//		backdrop-filter: none;
+	//		padding: 10px;
+	//		align-items: center;
+	//	}
+
+	//	a {
+	//		@include hover {
+	//			color: var(--color-dark);
+	//			opacity: 0.7;
+	//		}
+	//		&::after {
+	//			display: none;
+	//		}
+	//	}
+	//}
+}

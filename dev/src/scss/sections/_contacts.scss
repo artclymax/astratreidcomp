@@ -1,0 +1,136 @@
+@use "../tools" as *;
+
+.contacts {
+	background: var(--color-bg-2);
+
+	&__container {
+		display: flex;
+		justify-content: space-between;
+		gap: 32px;
+
+		@include media($tablet) {
+			flex-direction: column;
+		}
+	}
+
+	&__info {
+		flex: 0 1 37%;
+
+		.section-header {
+			text-align: left;
+			align-items: flex-start;
+
+			@include media($tablet) {
+				text-align: center;
+				align-items: center;
+			}
+
+			&:not(:last-child) {
+				margin-bottom: adapt(48, 32);
+			}
+
+			&__title {
+				max-width: 354px;
+
+				@include media($tablet) {
+					max-width: 100%;
+				}
+			}
+
+			&__descr {
+				font-size: 16px;
+			}
+		}
+	}
+
+	&__list {
+		@include reset-list;
+		display: flex;
+		flex-direction: column;
+		gap: adapt(24, 12);
+	}
+
+	&__item {
+	}
+
+	&__form {
+	}
+}
+
+.contacts-item {
+	padding: adapt(20, 16) adapt(20, 12);
+	background: var(--color-white);
+	border-radius: 16px;
+	border: 1px solid var(--color-border);
+	box-shadow:
+		0 4px 6px -4px rgba(0, 0, 0, 0.1),
+		0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+
+	&__icon {
+		@include bg-gradient-accent;
+		--width: 48px;
+		--bg-size: 20px;
+		flex-shrink: 0;
+	}
+
+	&__content {
+	}
+
+	&__caption {
+		@include reset;
+
+		font-weight: 500;
+		font-size: 14px;
+
+		&:not(:last-child) {
+			margin-bottom: 4px;
+		}
+	}
+
+	&__link,
+	&__address {
+		color: var(--color-dark);
+		font-weight: 700;
+	}
+
+	&__link {
+		text-decoration: none;
+		transition: all 0.3s;
+		font-size: 20px;
+
+		@include hover {
+			color: var(--color-accent);
+		}
+
+		&--mail {
+			font-size: adapt(20, 16);
+		}
+	}
+
+	&__address {
+		@include reset;
+		font-size: adapt(20, 16);
+	}
+}
+
+.contacts-form {
+	flex: 0 1 54%;
+	padding: adapt(40, 24) adapt(40, 12);
+	background: var(--color-white);
+	border-radius: 16px;
+	box-shadow:
+		0 4px 6px -4px rgba(0, 0, 0, 0.1),
+		0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+	&__title {
+		font-size: 20px;
+
+		&:not(:last-child) {
+			margin-bottom: 32px;
+		}
+	}
+}

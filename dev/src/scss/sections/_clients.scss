@@ -1,0 +1,24 @@
+@use "../tools" as *;
+
+.clients {
+	&__container {
+		.section-header {
+			&:not(:last-child) {
+				margin-bottom: adapt(64, 32);
+			}
+		}
+	}
+
+	&__list {
+		--min: #{adapt(180, 166)};
+		--gap: #{adapt(24, 8)};
+	}
+
+	&__item {
+		--object-fit: contain;
+		height: adapt(100, 92);
+		background: var(--color-white);
+		border: 1px solid var(--color-stroke-logo);
+		border-radius: 16px;
+	}
+}

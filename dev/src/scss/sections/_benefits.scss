@@ -1,0 +1,83 @@
+@use "../tools" as *;
+
+.benefits {
+	background: var(--color-bg-2);
+
+	&__container {
+		.section-header {
+			&:not(:last-child) {
+				margin-bottom: adapt(64, 32);
+			}
+		}
+	}
+
+	&__list {
+		@include reset-list;
+		display: grid;
+		grid-template-columns: repeat(6, 1fr);
+		gap: adapt(24, 8);
+
+		@include media($mobile) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	&__item {
+		grid-column: span 2;
+
+		@include media($mobile) {
+			grid-column: span 1;
+		}
+
+		&:last-child,
+		&:nth-last-child(2) {
+			grid-column: span 3;
+			flex-direction: row;
+			gap: adapt(24, 10);
+
+			@include media($mobile) {
+				grid-column: span 2;
+			}
+
+			.benefits-item__title {
+				&:not(:last-child) {
+					margin-bottom: 8px;
+				}
+			}
+		}
+	}
+}
+
+.benefits-item {
+	background: var(--color-white);
+	border: 1px solid var(--color-border);
+	border-radius: 16px;
+
+	padding: adapt(32, 12) adapt(32, 8);
+	@include flex-column;
+	gap: adapt(24, 8);
+
+	&__icon {
+		@include square(64px);
+		@include flex-center;
+		background: linear-gradient(180deg, #f6e9ee 0%, #fff 100%);
+		border-radius: 16px;
+		flex-shrink: 0;
+
+		img {
+			@include square(32px);
+		}
+	}
+
+	&__content {
+	}
+
+	&__title {
+		&:not(:last-child) {
+			margin-bottom: adapt(16, 8);
+		}
+	}
+
+	&__descr {
+	}
+}

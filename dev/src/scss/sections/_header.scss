@@ -1,0 +1,106 @@
+@use "../tools" as *;
+
+.header {
+	background: rgba(255, 255, 255, 0.8);
+	border-bottom: 1px solid var(--color-accent);
+	padding-block: 6px;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 55;
+
+	@include media($tablet) {
+		padding-block: 12px;
+		background: rgba(255, 255, 255, 0.9);
+	}
+
+	&__container {
+		display: flex;
+		align-items: center;
+	}
+
+	&__logo {
+		&:not(:last-child) {
+			margin-right: 40px;
+		}
+	}
+
+	&__menu {
+		margin-left: auto;
+	}
+
+	&__phone-btn {
+		margin-left: auto;
+
+		&:not(:last-child) {
+			margin-right: 20px;
+		}
+	}
+
+	&__burger-btn {
+	}
+}
+
+.header-menu {
+	@include media($tablet) {
+		gap: 64px;
+	}
+
+	&__list {
+		@include media($tablet) {
+			position: relative;
+
+			&::after {
+				content: "";
+				position: absolute;
+				left: 0;
+				bottom: -32px;
+				transform: translateY(-50%);
+				height: 1px;
+				width: 100%;
+				background: var(--color-accent);
+				opacity: 0.3;
+			}
+		}
+	}
+
+	&__box {
+		flex-shrink: 0;
+
+		@include media($tablet) {
+			max-width: 200px;
+			width: 100%;
+		}
+	}
+
+	&__phone-box {
+	}
+
+	&__btn {
+		padding: 11px 23px;
+	}
+}
+
+.header-phone {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+
+	&__text {
+		@include reset;
+
+		font-weight: 500;
+		font-size: 14px;
+	}
+
+	&__link {
+		--width: 18px;
+		gap: 8px;
+
+		text-decoration: none;
+		color: var(--color-accent);
+		font-weight: 800;
+	}
+}

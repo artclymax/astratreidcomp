@@ -1,0 +1,150 @@
+@use "../tools" as *;
+
+.products {
+	padding-block: var(--section-padding);
+	background: var(--color-bg-2);
+
+	&__container {
+		@include flex-column;
+	}
+	.section-header {
+		&:not(:last-child) {
+			margin-bottom: adapt(56, 32);
+		}
+	}
+	&__tabs {
+		align-self: center;
+		&:not(:last-child) {
+			margin-bottom: adapt(56, 24);
+		}
+	}
+
+	&__tab {
+		width: 100%;
+	}
+	&__note {
+		&:not(:first-child) {
+			margin-top: 56px;
+		}
+	}
+}
+
+.products-tabs {
+	@include reset-list;
+	display: flex;
+	flex-wrap: wrap;
+	padding: 5px;
+	border: 1px solid rgba(0, 0, 0, 0.08);
+	border-radius: 16px;
+	box-shadow:
+		0 2px 4px -2px rgba(0, 0, 0, 0.1),
+		0 4px 6px -1px rgba(0, 0, 0, 0.1);
+	background: var(--color-white);
+
+	&__item {
+		flex: 0 0 220px;
+
+		@include media($mobile) {
+			flex: 0 0 164px;
+		}
+	}
+
+	&__link {
+		@include reset-link;
+		width: 100%;
+		display: inline-flex;
+		padding: 12px;
+		text-align: center;
+		justify-content: center;
+		font-weight: 600;
+		font-size: 16px;
+		border-radius: 12px;
+		color: var(--color-dark);
+		transition: all 0.3s;
+
+		@include hover {
+			background: var(--color-accent-light);
+			color: var(--color-accent);
+		}
+
+		&.active-tab {
+			background: var(--color-accent);
+			color: var(--color-white);
+		}
+	}
+}
+.products-tab {
+	&__grid {
+		gap: 24px;
+		--min: 280px;
+	}
+}
+
+.products-grid-item {
+	border: 1px solid rgba(0, 0, 0, 0.08);
+	border-radius: 16px;
+	overflow: hidden;
+
+	&__image {
+		height: adapt(268, 160);
+	}
+
+	&__content {
+		padding: adapt(20, 12);
+		@include flex-column;
+		gap: 10px;
+	}
+
+	&__tags {
+		@include reset-list;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+	}
+
+	&__title {
+	}
+
+	&__tag {
+		padding: 2px 12px;
+		font-weight: 500;
+		font-size: 14px;
+		line-height: 130%;
+		color: var(--color-accent);
+		border: 1px solid rgba(0, 0, 0, 0);
+		border-radius: 20px;
+		background: var(--color-accent-light);
+	}
+
+	&__pack {
+		--width: 16px;
+		align-items: center;
+		gap: 4px;
+		font-size: 12px;
+		color: var(--color-gray-text);
+	}
+}
+
+.products-note {
+	box-shadow:
+		0 4px 6px -4px rgba(0, 0, 0, 0.1),
+		0 10px 15px -3px rgba(0, 0, 0, 0.1);
+	background: var(--color-accent-light);
+	padding: adapt(48, 32) 12px;
+	border-radius: 16px;
+	@include flex-column;
+	gap: adapt(28, 20);
+	text-align: center;	
+	align-items: center;
+	
+	&__title {
+	}
+
+	&__descr {
+		font-size: 18px;
+		color: var(--color-gray-text)
+	}
+
+	&__btn {
+	}
+}
